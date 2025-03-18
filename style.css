@@ -27,6 +27,7 @@ header nav {
     width: 100%;
 }
 
+/* Logo Styling - No changes needed here */
 header .logo {
     display: flex;
     align-items: center;
@@ -39,13 +40,19 @@ header .logo-img {
     margin-right: 10px; /* Optional: space between logo and text */
 }
 
+/* Menu Container Styling */
 header ul {
     list-style: none;
     display: flex;
     margin: 0;
     padding: 0;
+    background-color: #0f92d4ff; /* Fill color around the links */
+    border-radius: 25px; /* Rounded corners for the entire menu */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow effect for the whole menu */
+    padding: 5px 20px; /* Inner padding for the menu */
 }
 
+/* Styling each menu item (links) */
 header ul li {
     margin-left: 30px; /* Space between menu items */
 }
@@ -55,16 +62,21 @@ header ul li a {
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: 500;
-    font-family: 'Poppins', sans-serif; /* Added rounder font */
-    transition: color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 16px; /* Padding inside the menu items */
+    border-radius: 25px; /* Round corners for the individual links */
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
+/* Hover effect for links */
 header ul li a:hover {
-    color: #00bcd4;
+    color: #0f92d4ff; /* Text color changes to the original background color */
+    background-color: rgba(255, 255, 255, 0.2); /* Subtle white background on hover */
 }
 
 /* Add Google Font Import */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
 
 
 /* Home Section */
@@ -101,6 +113,27 @@ header ul li a:hover {
     transform: scale(1.05);
 }
 
+/* Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+    #home {
+        padding: 60px 20px; /* Reduced padding on mobile */
+    }
+
+    .hero h2 {
+        font-size: 2.5rem; /* Adjusted font size for mobile */
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 1.1rem; /* Adjusted font size for mobile */
+        margin-bottom: 20px;
+    }
+
+    .cta-button {
+        font-size: 1.1rem; /* Adjusted button font size for mobile */
+        padding: 10px 25px; /* Reduced padding for better fit */
+    }
+}
 
 /* About Us Section (Modern) */
 #about-us {
@@ -170,6 +203,39 @@ header ul li a:hover {
     border-radius: 10px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
+
+/* Mobile Styling */
+@media (max-width: 768px) {
+    .about-us-container {
+        flex-direction: column; /* Stack text and image vertically on mobile */
+        align-items: center; /* Center content */
+        gap: 20px; /* Adjust gap between elements */
+    }
+
+    .about-us-text {
+        max-width: 100%; /* Allow text to take up full width */
+        text-align: center; /* Center text on mobile */
+    }
+
+    .about-us-image {
+        max-width: 80%; /* Image takes up 80% of the screen on mobile */
+        text-align: center;
+    }
+
+    .about-us-text h2 {
+        font-size: 2rem; /* Adjust font size for mobile */
+    }
+
+    .about-us-text p {
+        font-size: 1rem; /* Adjust paragraph font size for mobile */
+    }
+
+    .about-us-text .cta-button {
+        font-size: 1rem; /* Adjust button size for mobile */
+        padding: 10px 25px; /* Adjust button padding */
+    }
+}
+
 
 
 /* Services Section Styles */
