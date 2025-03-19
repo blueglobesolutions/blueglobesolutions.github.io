@@ -47,14 +47,14 @@ header ul {
     margin: 0;
     padding: 0;
     background-color: #0f92d4ff; /* Fill color around the links */
-    border-radius: 25px; /* Rounded corners for the entire menu */
+    border-radius: 10px; /* Rounded corners for the entire menu */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow effect for the whole menu */
     padding: 5px 20px; /* Inner padding for the menu */
 }
 
 /* Styling each menu item (links) */
 header ul li {
-    margin-left: 30px; /* Space between menu items */
+    margin-left: 20px; /* Space between menu items */
 }
 
 header ul li a {
@@ -769,7 +769,7 @@ footer .socials a:hover {
     }
 
     .contact-container {
-        padding: 20px; /* Reduced padding for contact container */
+        padding: 40px 15px; /* Reduced padding for contact container */
     }
 
     /* Grid layout adjustments */
