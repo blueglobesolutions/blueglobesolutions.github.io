@@ -152,9 +152,11 @@ nav {
 
     /* Active menu shows when the class 'active' is added */
     #menu.active {
-        display: block;
+        display: flex;
     }
 }
+
+
 
 /* Media Queries for Mobile */
 @media screen and (max-width: 768px) {
