@@ -1,9 +1,11 @@
-<!-- Add this script tag at the end of your body tag -->
-<script>
-    const hamburger = document.querySelector('.hamburger');
-    const menu = document.querySelector('#menu');
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
 
     hamburger.addEventListener('click', () => {
-        menu.classList.toggle('active'); // Toggle the 'active' class to show/hide the menu
+        // Toggle 'active' class on the menu to open/close
+        menu.classList.toggle('active');
+        // Optionally, toggle the open class on hamburger for animation effect
+        hamburger.classList.toggle('open');
     });
-</script>
+});

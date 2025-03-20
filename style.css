@@ -133,11 +133,11 @@ nav {
     #menu {
         display: none;
         flex-direction: column;
-        width: 100%;
         background-color: #333;
         position: absolute;
         top: 0;
-        left: 0;
+        right: 0; /* Position the menu on the right side */
+        width: 250px; /* Set a fixed width for the menu */
         padding-top: 50px;
     }
 
@@ -156,8 +156,6 @@ nav {
     }
 }
 
-
-
 /* Media Queries for Mobile */
 @media screen and (max-width: 768px) {
     header ul {
@@ -175,21 +173,7 @@ nav {
 
     header ul li {
         margin: 10px 0;
-        text-align: center;
-    }
-
-    header ul li a {
-        padding: 15px 20px;
-    }
-
-    .hamburger {
-        display: flex; /* Show the hamburger on small screens */
-    }
-
-    .hamburger.open + #menu {
-        display: flex; /* Show the menu when hamburger is clicked */
-    }
-}
+        text
 
 /* Hover effect for links on small screens */
 @media screen and (max-width: 768px) {
