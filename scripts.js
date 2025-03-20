@@ -5,6 +5,5 @@
 
     hamburger.addEventListener('click', () => {
         menu.classList.toggle('active'); // Toggle the 'active' class to show/hide the menu
-        hamburger.classList.toggle('open'); // Optionally animate the hamburger icon when clicked
     });
 </script>
