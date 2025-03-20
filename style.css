@@ -82,78 +82,17 @@ header ul li a:hover {
 /* Hamburger Menu */
 .hamburger {
     display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 20px;
     cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    margin-left: 20px;
 }
 
 .hamburger span {
-    display: block;
-    width: 30px;
-    height: 4px;
+    width: 25px;
+    height: 3px;
     background-color: #fff;
-    border-radius: 2px;
-}
-
-/* Navigation menu (hidden by default) */
-nav {
-    display: flex;
-}
-
-#menu {
-    display: flex;
-    list-style: none;
-}
-
-#menu li {
-    margin: 0 15px;
-}
-
-#menu a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-/* Show the menu when it's active */
-#menu.active {
-    display: block;
-}
-
-/* Mobile view adjustments */
-@media (max-width: 768px) {
-    /* Show hamburger button on mobile */
-    .hamburger {
-        display: flex;
-    }
-
-    /* Hide the menu by default on small screens */
-    #menu {
-        display: none;
-        flex-direction: column;
-        background-color: #333;
-        position: absolute;
-        top: 0;
-        right: 0; /* Position the menu on the right side */
-        width: 250px; /* Set a fixed width for the menu */
-        padding-top: 50px;
-    }
-
-    #menu li {
-        text-align: center;
-        margin: 20px 0;
-    }
-
-    #menu a {
-        font-size: 22px;
-    }
-
-    /* Active menu shows when the class 'active' is added */
-    #menu.active {
-        display: flex;
-    }
+    border-radius: 5px;
 }
 
 /* Media Queries for Mobile */
@@ -173,7 +112,21 @@ nav {
 
     header ul li {
         margin: 10px 0;
-        text
+        text-align: center;
+    }
+
+    header ul li a {
+        padding: 15px 20px;
+    }
+
+    .hamburger {
+        display: flex; /* Show the hamburger on small screens */
+    }
+
+    .hamburger.open + #menu {
+        display: flex; /* Show the menu when hamburger is clicked */
+    }
+}
 
 /* Hover effect for links on small screens */
 @media screen and (max-width: 768px) {
