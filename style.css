@@ -79,21 +79,6 @@ header ul li a:hover {
 /* Add Google Font Import */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
-/* Hamburger Menu */
-.hamburger {
-    display: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-    margin-left: 20px;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    border-radius: 5px;
-}
 
 /* Media Queries for Mobile */
 @media screen and (max-width: 768px) {
@@ -119,13 +104,6 @@ header ul li a:hover {
         padding: 15px 20px;
     }
 
-    .hamburger {
-        display: flex; /* Show the hamburger on small screens */
-    }
-
-    .hamburger.open + #menu {
-        display: flex; /* Show the menu when hamburger is clicked */
-    }
 }
 
 /* Hover effect for links on small screens */
