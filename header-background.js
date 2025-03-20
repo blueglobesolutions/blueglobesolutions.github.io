@@ -1,7 +1,8 @@
-// Toggle menu for mobile
-const mobileMenu = document.getElementById("mobile-menu");
-const menuList = document.querySelector("header ul");
+// JavaScript to toggle the hamburger menu
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
 
-mobileMenu.addEventListener("click", () => {
-    menuList.classList.toggle("active");
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("open");
+    menu.classList.toggle("open");
 });
