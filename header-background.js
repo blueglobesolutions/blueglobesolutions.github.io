@@ -1,8 +1,8 @@
-// JavaScript to toggle the hamburger menu
-const hamburger = document.getElementById("hamburger");
-const menu = document.getElementById("menu");
+// Select the hamburger button and the menu
+const hamburger = document.getElementById('hamburger');
+const menu = document.getElementById('menu');
 
-hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("open");
-    menu.classList.toggle("open");
+// Toggle the 'active' class when the hamburger is clicked
+hamburger.addEventListener('click', () => {
+    menu.classList.toggle('active');
 });
