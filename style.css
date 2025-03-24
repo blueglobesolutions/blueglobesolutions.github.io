@@ -139,7 +139,7 @@ header ul {
 
 /* Styling each menu item (links) */
 header ul li {
-    margin-left: 20px; /* Space between menu items */
+    margin-left: 10px; /* Space between menu items */
 }
 
 /* Styling the main menu links */
@@ -208,6 +208,11 @@ header ul li a:hover {
     opacity: 1;
     visibility: visible;
     transform: translateY(0); /* Smooth dropdown transition */
+}
+
+/* Show dropdown when active */
+.dropdown-content.show {
+  display: block;
 }
 
 /* Dropdown items */
