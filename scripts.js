@@ -13,43 +13,46 @@ const servicesLink = servicesMenu.querySelector('.dropbtn');
 const dropdownContent = servicesMenu.querySelector('.dropdown-content');
 
 let isDropdownOpen = false;
-let clickTimeout = null; // To manage click timing and prevent accidental navigation
+let clickCount = 0; // To track the number of clicks
 
-// Add click event listener to the Services link
-servicesLink.addEventListener('click', function(e) {
+// Add click or touchend event listener to the Services link
+function handleClick(e) {
   e.preventDefault(); // Prevent the default behavior of the link
   
-  if (!isDropdownOpen) {
+  if (clickCount === 0) {
     // First click: Open the dropdown
     dropdownContent.classList.add('show');
     isDropdownOpen = true;
 
-    // Reset click timeout to ensure navigation happens on the second click
-    if (clickTimeout) {
-      clearTimeout(clickTimeout);
-    }
-
-    clickTimeout = setTimeout(() => {
-      // Reset dropdown if not clicked again after 300ms
-      isDropdownOpen = false;
-      dropdownContent.classList.remove('show');
-    }, 300); // Timeout to prevent auto-navigation if no second click occurs
-  } else {
-    // Second click: Navigate to services page
+    // Increment click count to track second click
+    clickCount = 1;
+  } else if (clickCount === 1) {
+    // Second click: Navigate to the services page
     window.location.href = 'services.html'; // Change to your services page URL
-  }
-});
 
-// Close the dropdown when clicking anywhere outside the menu
+    // Reset after the second click (navigation)
+    clickCount = 0;
+    isDropdownOpen = false;
+    dropdownContent.classList.remove('show');
+  }
+}
+
+// Add event listeners for both click and touch events
+servicesLink.addEventListener('click', handleClick);
+servicesLink.addEventListener('touchend', handleClick);
+
+// Close the dropdown when clicking anywhere outside the services menu
 document.addEventListener('click', function(e) {
   // Check if the click target is not inside the services menu or dropdown
   if (!servicesMenu.contains(e.target) && isDropdownOpen) {
     dropdownContent.classList.remove('show');
     isDropdownOpen = false;
-    // Reset timeout when clicking outside
-    if (clickTimeout) {
-      clearTimeout(clickTimeout);
-    }
+    clickCount = 0; // Reset click count when clicking outside
+  }
+
+  // Check if the click target is not inside the menu or menu icon
+  if (!menu.contains(e.target) && menu.classList.contains('active')) {
+    menu.classList.remove('active'); // Close the hamburger menu
   }
 });
 
