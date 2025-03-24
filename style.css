@@ -187,6 +187,53 @@ header ul li a:hover {
     }
 }
 
+
+
+/* Burger Icon Styles */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    justify-content: space-between;
+}
+
+.bar {
+    width: 100%;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+/* Media Query for Burger Menu */
+@media screen and (max-width: 768px) {
+    /* Hide the normal menu on mobile */
+    header ul {
+        display: none;
+        flex-direction: column;
+        background-color: #0f92d4ff;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Show the menu when the burger icon is clicked */
+    header ul.show {
+        display: flex;
+    }
+
+    /* Show the burger icon */
+    .menu-icon {
+        display: flex;
+    }
+}
+
+
 /* Home Section */
 #home {
     background-color: #00bcd4;
