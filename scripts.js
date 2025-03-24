@@ -13,18 +13,26 @@ const servicesLink = servicesMenu.querySelector('.dropbtn');
 const dropdownContent = servicesMenu.querySelector('.dropdown-content');
 
 let isDropdownOpen = false;
+let clickCount = 0; // Track the number of clicks
 
 // Add click event listener to the Services link
 servicesLink.addEventListener('click', function(e) {
   e.preventDefault(); // Prevent the default link behavior
 
-  // If the dropdown is already open, navigate to the services page
-  if (isDropdownOpen) {
-    window.location.href = 'services.html';  // Change to your services page URL
-  } else {
-    // Otherwise, toggle the dropdown visibility
-    dropdownContent.classList.add('show');
-    isDropdownOpen = true;
+  // First click - open the dropdown
+  if (clickCount === 0) {
+    if (!isDropdownOpen) {
+      dropdownContent.classList.add('show');
+      isDropdownOpen = true;
+    }
+    clickCount = 1; // Set click count to 1
+  }
+  // Second click - navigate to the services page
+  else if (clickCount === 1) {
+    window.location.href = 'services.html';  // Navigate to services page
+    clickCount = 0; // Reset click count after navigation
+    dropdownContent.classList.remove('show'); // Optionally close the dropdown after navigating
+    isDropdownOpen = false;
   }
 });
 
@@ -34,6 +42,7 @@ document.addEventListener('click', function(e) {
   if (!servicesMenu.contains(e.target) && isDropdownOpen) {
     dropdownContent.classList.remove('show');
     isDropdownOpen = false;
+    clickCount = 0; // Reset click count if the menu is closed
   }
 });
 
