@@ -50,7 +50,7 @@ header nav {
 #menu {
     display: flex;
     list-style: none;
-    gap: 15px; /* Adjust gap between main menu items */
+    gap: 10px; /* Adjust gap between main menu items */
     margin: 0;
     padding: 0;
 }
