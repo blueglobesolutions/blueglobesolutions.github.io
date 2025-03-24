@@ -70,6 +70,7 @@ header .logo-img {
     /* Show the burger icon on small screens */
     .menu-icon {
         display: flex; /* Display burger icon */
+        right: 20px; /* Align it to the right */
     }
 
     /* Show the menu when 'active' class is added */
@@ -809,6 +810,75 @@ footer .socials a {
 footer .socials a:hover {
     color: #00bcd4;
 }
+
+
+/* Footer Styles */
+footer {
+    background-color: #333; /* Dark background for contrast */
+    color: #f1f1f1; /* Light text color */
+    padding: 20px 0;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow at the top for depth */
+}
+
+/* Ensuring smooth transitions across browsers */
+footer a {
+    color: #f39c12; /* Orange accent color */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Adding smooth transition for text-decoration */
+}
+
+/* Hover effect for the "Powered by" link */
+footer a:hover {
+    color: #ffffff; /* Darker orange when hovering */
+    text-decoration: underline;
+}
+
+/* Add some fallback styles for old browsers */
+footer a:focus {
+    outline: none;
+    color: #e67e22; /* Same color on focus */
+    text-decoration: underline;
+}
+
+/* Ensuring the footer text is legible on all devices */
+.footer-content p {
+    margin: 5px 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    footer {
+        padding: 15px 0;
+    }
+
+    .footer-content p {
+        font-size: 12px;
+    }
+}
+
+/* Cross-Browser Box Shadow Support */
+footer {
+    -webkit-box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* For Safari */
+    -moz-box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* For Firefox */
+}
+
+/* Normalize Flexbox Support for Mobile Devices */
+@supports(display: flex) {
+    footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+
+
 
 
 /* Add Media queries */
