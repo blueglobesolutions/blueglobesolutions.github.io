@@ -1,3 +1,13 @@
+// Get the hamburger icon and menu
+const menuIcon = document.getElementById('menu-icon');
+const menu = document.getElementById('menu');
+
+// Add click event listener to the hamburger icon
+menuIcon.addEventListener('click', function() {
+    menu.classList.toggle('active');
+});
+
+
 // Get the 'Services' menu item and dropdown content
 const servicesMenu = document.getElementById('services-menu');
 const servicesLink = servicesMenu.querySelector('.dropbtn');
@@ -26,13 +36,4 @@ document.addEventListener('click', function(e) {
     dropdownContent.style.display = 'none';
     isDropdownOpen = false;
   }
-});
-
-// Get the hamburger icon and menu
-const menuIcon = document.getElementById('menu-icon');
-const menu = document.getElementById('menu');
-
-// Add click event listener to the hamburger icon
-menuIcon.addEventListener('click', function() {
-    menu.classList.toggle('active');
 });
