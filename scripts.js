@@ -1,6 +1,9 @@
-const hamburger = document.querySelector('.hamburger');
-const menu = document.querySelector('header ul');
+// Get elements for the menu icon and the menu
+const menuIcon = document.getElementById("menu-icon");
+const menu = document.getElementById("menu");
 
-hamburger.addEventListener('click', () => {
-    menu.classList.toggle('open');
+// Toggle the "active" class on menu and menu icon when clicked
+menuIcon.addEventListener("click", function() {
+    menu.classList.toggle("active");
+    menuIcon.classList.toggle("active");
 });
