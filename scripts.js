@@ -19,18 +19,20 @@ servicesLink.addEventListener('click', function(e) {
   e.preventDefault();
   e.stopPropagation();  // Prevent the document click handler from firing immediately.
 
+  // If the dropdown is already open, navigate to the services page
   if (isDropdownOpen) {
     window.location.href = 'services.html';  // Change to your services page URL
   } else {
-    dropdownContent.classList.toggle('show');  // Use class toggle for showing/hiding
-    isDropdownOpen = !isDropdownOpen;
+    // Otherwise, toggle the dropdown visibility
+    dropdownContent.style.display = 'block';
+    isDropdownOpen = true;
   }
 });
 
 // Close the dropdown when clicking anywhere outside
 document.addEventListener('click', function(e) {
   if (!servicesMenu.contains(e.target)) {
-    dropdownContent.classList.remove('show');  // Use class to hide it
+    dropdownContent.style.display = 'none';
     isDropdownOpen = false;
   }
 });
