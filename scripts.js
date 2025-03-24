@@ -16,23 +16,28 @@ let isDropdownOpen = false;
 
 // Add click event listener to the Services link
 servicesLink.addEventListener('click', function(e) {
-  e.preventDefault();
-  e.stopPropagation();  // Prevent the document click handler from firing immediately.
+  e.preventDefault(); // Prevent the default link behavior
 
   // If the dropdown is already open, navigate to the services page
   if (isDropdownOpen) {
     window.location.href = 'services.html';  // Change to your services page URL
   } else {
     // Otherwise, toggle the dropdown visibility
-    dropdownContent.style.display = 'block';
+    dropdownContent.classList.add('show');
     isDropdownOpen = true;
   }
 });
 
-// Close the dropdown when clicking anywhere outside
+// Close the dropdown when clicking anywhere outside the menu
 document.addEventListener('click', function(e) {
-  if (!servicesMenu.contains(e.target)) {
-    dropdownContent.style.display = 'none';
+  // Check if the click target is not inside the services menu or dropdown
+  if (!servicesMenu.contains(e.target) && isDropdownOpen) {
+    dropdownContent.classList.remove('show');
     isDropdownOpen = false;
   }
+});
+
+// Prevent clicks on the dropdown itself from closing the menu
+dropdownContent.addEventListener('click', function(e) {
+  e.stopPropagation();  // Prevent the event from bubbling up to the document click handler
 });
