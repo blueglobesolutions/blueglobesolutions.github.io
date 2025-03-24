@@ -1,4 +1,3 @@
-
 /* General Reset */
 * {
     margin: 0;
@@ -18,33 +17,47 @@ header {
     background-size: cover; /* Ensure the background image stretches and covers the entire area */
     background-repeat: no-repeat; /* Prevent the image from repeating */
     color: #fff;
-    padding: 20px;
-}
-
-header nav {
+    padding: 20px; /* Keeps padding intact */
     display: flex;
-    justify-content: flex-start; /* Align items to the left */
-    align-items: center;
+    justify-content: flex-start; /* Aligns the logo, menu icon, and menu items closely */
+    align-items: center; /* Vertically center the elements */
     width: 100%;
+    position: relative; /* Allow absolute positioning of the burger icon */
 }
 
-/* Logo Styling - No changes needed here */
+/* Logo Styling */
 header .logo {
     display: flex;
     align-items: center;
-    margin-right: 20px; /* Add some spacing between the logo and menu */
+    margin-right: 10px; /* Reduces space between the logo and the menu */
 }
 
 header .logo-img {
-    height: 80px; /* Adjust logo height for a larger logo */
+    height: 60px; /* Adjust the height of the logo to maintain balance */
     width: auto;
     margin-right: 10px; /* Optional: space between logo and text */
 }
 
+/* Menu Section */
+header nav {
+    display: flex;
+    justify-content: flex-start; /* Keeps the menu aligned with the logo */
+    align-items: center;
+    gap: 10px; /* Adjusts the gap between the menu items */
+}
 
-/* Menu Icon (Hamburger) */
+/* Main Menu Items */
+#menu {
+    display: flex;
+    list-style: none;
+    gap: 15px; /* Adjust gap between main menu items */
+    margin: 0;
+    padding: 0;
+}
+
+/* Menu Icon (Hamburger Menu) */
 .menu-icon {
-    display: none; /* Hidden by default */
+    display: none; /* Hidden by default on larger screens */
     cursor: pointer;
     flex-direction: column;
     gap: 5px;
@@ -58,43 +71,250 @@ header .logo-img {
     border-radius: 3px;
 }
 
-
-/* Media query for small mobile screens (max-width: 768px) */
+/* Burger Icon Visibility on Mobile */
 @media (max-width: 768px) {
     /* Hide the menu by default on small mobile screens */
     #menu {
-        display: none; /* Hide menu */
-        flex-direction: column; /* Stack menu items vertically */
+        display: none; /* Initially hide the menu */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #0f92d4ff; /* Keep original background color */
+        z-index: 100;
+        padding: 0;
     }
 
-    /* Show the burger icon on small screens */
+    /* Flexbox for the header on mobile */
+    header {
+        justify-content: flex-start; /* Keeps items close */
+        align-items: center; /* Ensures items are vertically centered */
+        width: 100%;
+    }
+
     .menu-icon {
-        display: flex; /* Display burger icon */
-        right: 20px; /* Align it to the right */
+        display: flex; /* Show burger icon on mobile */
+        position: absolute;
+        right: 10px; /* Align it to the right side */
+        top: 20px; /* Align it to the top */
     }
 
-    /* Show the menu when 'active' class is added */
+    /* Show the menu when burger is clicked */
     #menu.active {
-        display: flex; /* Show the menu when burger is clicked */
+        display: flex;
+    }
+
+    /* Dropdown adjustments */
+    .dropdown-content {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
 }
 
 /* Media query for larger tablets and small PC screens (max-width: 1024px) */
 @media (max-width: 1024px) {
-    /* Hide the menu by default on small PC screens (and tablets) */
-    #menu {
-        display: none; /* Hide menu */
-        flex-direction: column; /* Stack menu items vertically */
+    header nav {
+        justify-content: flex-start;
     }
 
-    /* Show the burger icon on small PC and iPad screens */
     .menu-icon {
-        display: flex; /* Display burger icon */
+        display: flex; /* Shows burger icon */
+    }
+}
+
+/* Menu Container Styling */
+header ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    background-color: #0f92d4ff; /* Fill color around the links */
+    border-radius: 10px; /* Rounded corners for the entire menu */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow effect for the whole menu */
+    padding: 5px 20px; /* Inner padding for the menu */
+}
+
+/* Styling each menu item (links) */
+header ul li {
+    margin-left: 20px; /* Space between menu items */
+}
+
+/* Styling the main menu links */
+header ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 16px; /* Padding inside the menu items */
+    border-radius: 25px; /* Round corners for the individual links */
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Add hover effect on main menu links */
+header ul li a:hover {
+    background-color: #036a94; /* Darker background on hover */
+}
+
+/* Dropdown Container */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Dropdown items */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown items on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown when hovering over the 'Services' menu item */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Dropdown Container */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff; /* Modern white background */
+    min-width: 200px; /* Slightly wider for better usability */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Softer shadow for a modern feel */
+    z-index: 1;
+    border-radius: 6px; /* Rounded corners for a modern look */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s, transform 0.3s ease;
+}
+
+/* Show the dropdown when hovering over the 'Services' menu item */
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Smooth dropdown transition */
+}
+
+/* Dropdown items */
+.dropdown-content a {
+    color: #333; /* Dark text for better contrast */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-bottom: 1px solid #f4f4f4; /* Light border between items */
+}
+
+/* Last item (remove bottom border) */
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+/* Change color of dropdown items on hover */
+.dropdown-content a:hover {
+    background-color: #007bff; /* Blue background on hover */
+    color: white; /* White text color */
+    border-radius: 4px; /* Rounded corners on hover */
+}
+
+/* Optional: style the main menu */
+#menu > li > a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    display: block;
+}
+
+/* Hover effect on main items */
+#menu > li > a:hover {
+    background-color: #036a94;
+}
+
+/* Hover effect for links */
+header ul li a:hover {
+    color: #0f92d4ff; /* Text color changes to the original background color */
+    background-color: rgba(255, 255, 255, 0.2); /* Subtle white background on hover */
+}
+
+/* Add Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+/* Hover effect for links on small screens */
+@media screen and (max-width: 768px) {
+    header ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #fff;
+    }
+}
+
+/* Home Section */
+#home {
+    background-color: #00bcd4;
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: #fff;
+    color: #333;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0097a7;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+    #home {
+        padding: 60px 20px; /* Reduced padding on mobile */
     }
 
-    /* Show the menu when 'active' class is added */
-    #menu.active {
-        display: flex; /* Show the menu when burger is clicked */
+    .hero h2 {
+        font-size: 2.5rem; /* Adjusted font size */
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .cta-button {
+        font-size: 1rem;
+        padding: 10px 25px;
     }
 }
 
@@ -204,7 +424,7 @@ header ul li a:hover {
 
 /* Change color of dropdown items on hover */
 .dropdown-content a:hover {
-    background-color: #007bff; /* Blue background on hover */
+    background-color: #036a94; /* Blue background on hover */
     color: white; /* White text color */
     border-radius: 4px; /* Rounded corners on hover */
 }
